@@ -1,0 +1,5 @@
+all: NeuralNet
+%.o: %.cpp
+	g++ -o $@ -c $<
+NeuralNet: Neuron.o Net.o Handler.o
+	g++ -o $@ $^
