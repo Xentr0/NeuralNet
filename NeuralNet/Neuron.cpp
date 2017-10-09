@@ -1,5 +1,6 @@
 #include "Neuron.h"
-//#include <cmath>
+#include <cmath>
+#include <stdlib.h>
 
 Neuron::Neuron(unsigned numOutputs, unsigned myIndex)
 {

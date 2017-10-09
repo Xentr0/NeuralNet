@@ -1,6 +1,8 @@
 #pragma once
 #include "MyVars.h"
 #include <vector>
+#include <string.h>
+#include <stdlib.h>
 
 using namespace std;
 class Neuron;

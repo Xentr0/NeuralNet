@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cassert>
 #include <algorithm>
+#include <cmath>
 
 Handler::Handler()
 {
@@ -210,7 +211,9 @@ void Handler::SetWeights(string _path)
 
 	string line;
 	getline(file, line);
-	stringstream ss(line);
+	//stringstream ss(line);
+	stringstream ss;
+	ss.str(line);
 	string label;
 
 	ss >> label;
@@ -221,7 +224,7 @@ void Handler::SetWeights(string _path)
 	m_params.trainPath = trainPath;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("topology:") != 0)
 		exit(1);
@@ -234,7 +237,7 @@ void Handler::SetWeights(string _path)
 	m_params.topology = topology;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("eta:") != 0)
 		exit(1);
@@ -243,7 +246,7 @@ void Handler::SetWeights(string _path)
 	m_params.eta = eta;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("alpha:") != 0)
 		exit(1);
@@ -252,7 +255,7 @@ void Handler::SetWeights(string _path)
 	m_params.alpha = alpha;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("activationfunction:") != 0)
 		exit(1);
@@ -268,7 +271,7 @@ void Handler::SetWeights(string _path)
 	m_params.func = transferFunc;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("epochs:") != 0)
 		exit(1);
@@ -277,7 +280,7 @@ void Handler::SetWeights(string _path)
 	m_params.epochs = epochs;
 
 	getline(file, line);
-	ss.swap(stringstream(line));
+	ss.str(line);
 	ss >> label;
 	if (label.compare("batchsize:") != 0)
 		exit(1);
@@ -290,7 +293,7 @@ void Handler::SetWeights(string _path)
 	while (true)
 	{
 		getline(file, line);
-		ss.swap(stringstream(line));
+		ss.str(line);
 
 		double weight;
 		ss >> weight;
@@ -408,6 +411,7 @@ bool Handler::fileExists(string& path)
 		return true;
 	}
 	else {
+		cout << "File " << path << " not found." << endl;
 		return false;
 	}
 }

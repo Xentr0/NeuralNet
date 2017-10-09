@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cmath>
 
 Net::Net(const Params _params)
 {

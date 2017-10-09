@@ -5,9 +5,9 @@
 
 int main()
 {
-	string trainPath = "C:/Users/Ruben/Desktop/NeuralNet/trainMNIST.txt";
-	string testPath  = "C:/Users/Ruben/Desktop/NeuralNet/testMNIST.txt";
-	string weightsPath = "C:/Users/Ruben/Desktop/NeuralNet/trainMNIST.weights0";
+	string trainPath = "/home/xentro/Projects/ConvertMnist/ConvertMnist/Data/trainMNIST.txt";
+	string testPath  = "/home/xentro/Projects/ConvertMnist/ConvertMnist/Data/testMNIST.txt";
+	string weightsPath = "/home/xentro/Projects/ConvertMnist/ConvertMnist/Data/trainMNIST.weights0";
 
 	vector<unsigned> topology;
 	topology.push_back(784);
@@ -21,7 +21,7 @@ int main()
 	myParams.alpha = 0;
 	myParams.eta = 3;
 	myParams.func = activationFunc::sigmoid;
-	myParams.epochs = 30;
+	myParams.epochs = 3;
 	myParams.batchSize = 10;
 	myParams.trainPath = trainPath;
 
